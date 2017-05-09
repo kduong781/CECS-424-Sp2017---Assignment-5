@@ -1,0 +1,4 @@
+Writing in fortran was not that difficult. The first thing I did was
+try to find out how to initialize variables (boolean, integer, array).
+I then found out how to make a dynamic array and how to do basic if statements.
+After finding out the basic syntax, I implemented a basic sort and binary search.
