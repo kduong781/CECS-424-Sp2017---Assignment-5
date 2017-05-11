@@ -1,4 +1,3 @@
-      PROGRAM BinarySearch
       IMPLICIT NONE
       real darray(200)
       integer temp, mid, left, right, i, j, s1, s2, sizeT, search, run
@@ -12,7 +11,7 @@
       read*, s2
       darray(i) = s2
       end do
-      
+
       do j=s1-1,1,-1
       swapped = .false.
       do i=1, j
@@ -37,28 +36,30 @@
       run = 0
       print*, "Enter a number you want to search for: "
       read*, search
-      do while(run == 0)
-       do while(darray(mid) /= search .and. sizeT > 0)
+ 40   if(run == 0) then
+ 41     if(darray(mid) /= search .and. sizeT > 0) then
        if(darray(mid) < search) then
         left = mid + 1
        else
        right = mid - 1
-       end if
-       sizeT = right - left
-       mid = (left + right)/ 2
-       enddo
+               end if
+           sizeT = right - left
+             mid = (left + right)/ 2
+       go to 41
+       endif
        if(darray(mid) == search) then
-       print*, "The number you searched for is at index", mid
-       print*, "Enter a number you want to search for: "
-       read*, search
+                print*, "The number you searched for is at index", mid
+                print*, "Enter a number you want to search for: "
+                read*, search
        else
-       print*, "Number not in array! Pick again:"
-       read*, search
-       left = 1
-       right = s1
-       sizeT = right - left
-       mid = (left + right)/2
+              print*, "Number not in array! Pick again:"
+               read*, search
        end if
-      end do
-      
+                left = 1
+               right = s1
+               sizeT = right - left
+               mid = (left + right)/2
+      go to 40
+      end if
+
       end
